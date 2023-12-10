@@ -1,0 +1,5 @@
+Pillow==9.4.0
+Pillow==10.1.0
+PyDirectInput==1.0.4
+pygame==2.5.2
+Requests==2.31.0
