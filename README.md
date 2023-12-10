@@ -17,7 +17,7 @@ This program is for learning purposes only. Please do not use it for illegal act
   - Force automatic shutdown ...done
   - self-replication
 
-## Document introduction
+## Files introduction
   - Zink.py -> the file you want to send to the man you want to disaster
   - server.py -> the file you want to run on your own computer
   - requirements.txt -> you want to excute 'pip install -r requirements.txt'
