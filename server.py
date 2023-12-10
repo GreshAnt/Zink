@@ -63,6 +63,6 @@ if __name__ == '__main__':
     save('\n--------------------------------------\n')
     while True:
         nowtime = get_current_datetime_str()
-        filename_to_receive = f"sc{nowtime.replace(':', '-')}.png"
+        filename_to_receive = f"./screenshot/sc{nowtime.replace(':', '-')}.png"
         receive_file(filename_to_receive, nowtime)
         save('\n----------\n')
