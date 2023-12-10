@@ -5,7 +5,7 @@ It is a simple destructive program by python.
 
 This program is for learning purposes only. Please do not use it for illegal activities. You will be responsible for the consequences.
 
-It is a simple destructive program by python.
+
 
 ## Features
   - Take a screenshot and send it to you computer ...done
