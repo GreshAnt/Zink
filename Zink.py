@@ -10,7 +10,7 @@ from requests import (get)
 from time import (sleep)
 from concurrent.futures import ThreadPoolExecutor
 
-HOST = 'ip.gresh.top'
+HOST = '' # Your ip adress
 PORT = 1234
 
 
