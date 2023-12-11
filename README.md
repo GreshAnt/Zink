@@ -1,6 +1,6 @@
 # Zink
 
-It is a simple destructive program by python.
+It is a simple destructive program by python. You can think of it as a computer virus
 # ---warning---
 
 This program is for learning purposes only. Please do not use it for illegal activities. You will be responsible for the consequences.
