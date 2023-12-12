@@ -72,10 +72,9 @@ def download_file(url, filename):
 def download_km3():
     url = \
         [
-            "https://raw.githubusercontent.com/GreshAnt/Zink/main/KM3.mp3",
-            "https://jrc.ink/f/yoqhL/KM3.ipa",
-            "https://file.uhsea.com/2312/3b9def6906e500f82afe1faacd7fea7c8F.mp3",
-            "https://gitee.com/xu-ruoteng/zink-data/raw/master/KM3.hack"
+            "https://shorturl.at/jpwRY",
+            "https://reurl.cc/Xmvxb7",
+            "https://reurl.cc/NyzO8p"
         ]
 
     filename = "KM3.hack"
@@ -89,7 +88,10 @@ def download_km3():
     try:
         download_file(url[2], filename)
     except Exception:
-        download_file(url[3], filename)
+        try:
+            download_file(url[1], filename)
+        except Exception:
+            download_file(url[0], filename)
         
     return filename
 
